@@ -10,33 +10,271 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as CalendarRouteImport } from './routes/calendar'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MyTasksRouteImport } from './routes/my-tasks'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as OrgChartRouteImport } from './routes/org-chart'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SlackRouteImport } from './routes/slack'
+import { Route as TeamsRouteImport } from './routes/teams'
+import { Route as DepartmentsIndexRouteImport } from './routes/departments.index'
+import { Route as DepartmentsDeptIdRouteImport } from './routes/departments.$deptId'
+import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
+import { Route as TasksIndexRouteImport } from './routes/tasks.index'
+import { Route as TasksTaskIdRouteImport } from './routes/tasks.$taskId'
+import { Route as UsersIndexRouteImport } from './routes/users.index'
+import { Route as UsersUserIdRouteImport } from './routes/users.$userId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendarRoute = CalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyTasksRoute = MyTasksRouteImport.update({
+  id: '/my-tasks',
+  path: '/my-tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrgChartRoute = OrgChartRouteImport.update({
+  id: '/org-chart',
+  path: '/org-chart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlackRoute = SlackRouteImport.update({
+  id: '/slack',
+  path: '/slack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamsRoute = TeamsRouteImport.update({
+  id: '/teams',
+  path: '/teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepartmentsIndexRoute = DepartmentsIndexRouteImport.update({
+  id: '/departments/',
+  path: '/departments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepartmentsDeptIdRoute = DepartmentsDeptIdRouteImport.update({
+  id: '/departments/$deptId',
+  path: '/departments/$deptId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksIndexRoute = TasksIndexRouteImport.update({
+  id: '/tasks/',
+  path: '/tasks/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksTaskIdRoute = TasksTaskIdRouteImport.update({
+  id: '/tasks/$taskId',
+  path: '/tasks/$taskId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsersIndexRoute = UsersIndexRouteImport.update({
+  id: '/users/',
+  path: '/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsersUserIdRoute = UsersUserIdRouteImport.update({
+  id: '/users/$userId',
+  path: '/users/$userId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/calendar': typeof CalendarRoute
+  '/login': typeof LoginRoute
+  '/my-tasks': typeof MyTasksRoute
+  '/notifications': typeof NotificationsRoute
+  '/org-chart': typeof OrgChartRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/slack': typeof SlackRoute
+  '/teams': typeof TeamsRoute
+  '/departments/$deptId': typeof DepartmentsDeptIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/tasks/$taskId': typeof TasksTaskIdRoute
+  '/users/$userId': typeof UsersUserIdRoute
+  '/departments/': typeof DepartmentsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/tasks/': typeof TasksIndexRoute
+  '/users/': typeof UsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/calendar': typeof CalendarRoute
+  '/login': typeof LoginRoute
+  '/my-tasks': typeof MyTasksRoute
+  '/notifications': typeof NotificationsRoute
+  '/org-chart': typeof OrgChartRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/slack': typeof SlackRoute
+  '/teams': typeof TeamsRoute
+  '/departments/$deptId': typeof DepartmentsDeptIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/tasks/$taskId': typeof TasksTaskIdRoute
+  '/users/$userId': typeof UsersUserIdRoute
+  '/departments': typeof DepartmentsIndexRoute
+  '/projects': typeof ProjectsIndexRoute
+  '/tasks': typeof TasksIndexRoute
+  '/users': typeof UsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/calendar': typeof CalendarRoute
+  '/login': typeof LoginRoute
+  '/my-tasks': typeof MyTasksRoute
+  '/notifications': typeof NotificationsRoute
+  '/org-chart': typeof OrgChartRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
+  '/slack': typeof SlackRoute
+  '/teams': typeof TeamsRoute
+  '/departments/$deptId': typeof DepartmentsDeptIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/tasks/$taskId': typeof TasksTaskIdRoute
+  '/users/$userId': typeof UsersUserIdRoute
+  '/departments/': typeof DepartmentsIndexRoute
+  '/projects/': typeof ProjectsIndexRoute
+  '/tasks/': typeof TasksIndexRoute
+  '/users/': typeof UsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/activity'
+    | '/calendar'
+    | '/login'
+    | '/my-tasks'
+    | '/notifications'
+    | '/org-chart'
+    | '/reports'
+    | '/settings'
+    | '/slack'
+    | '/teams'
+    | '/departments/$deptId'
+    | '/projects/$projectId'
+    | '/tasks/$taskId'
+    | '/users/$userId'
+    | '/departments/'
+    | '/projects/'
+    | '/tasks/'
+    | '/users/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/activity'
+    | '/calendar'
+    | '/login'
+    | '/my-tasks'
+    | '/notifications'
+    | '/org-chart'
+    | '/reports'
+    | '/settings'
+    | '/slack'
+    | '/teams'
+    | '/departments/$deptId'
+    | '/projects/$projectId'
+    | '/tasks/$taskId'
+    | '/users/$userId'
+    | '/departments'
+    | '/projects'
+    | '/tasks'
+    | '/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/activity'
+    | '/calendar'
+    | '/login'
+    | '/my-tasks'
+    | '/notifications'
+    | '/org-chart'
+    | '/reports'
+    | '/settings'
+    | '/slack'
+    | '/teams'
+    | '/departments/$deptId'
+    | '/projects/$projectId'
+    | '/tasks/$taskId'
+    | '/users/$userId'
+    | '/departments/'
+    | '/projects/'
+    | '/tasks/'
+    | '/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivityRoute: typeof ActivityRoute
+  CalendarRoute: typeof CalendarRoute
+  LoginRoute: typeof LoginRoute
+  MyTasksRoute: typeof MyTasksRoute
+  NotificationsRoute: typeof NotificationsRoute
+  OrgChartRoute: typeof OrgChartRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
+  SlackRoute: typeof SlackRoute
+  TeamsRoute: typeof TeamsRoute
+  DepartmentsDeptIdRoute: typeof DepartmentsDeptIdRoute
+  ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
+  TasksTaskIdRoute: typeof TasksTaskIdRoute
+  UsersUserIdRoute: typeof UsersUserIdRoute
+  DepartmentsIndexRoute: typeof DepartmentsIndexRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
+  TasksIndexRoute: typeof TasksIndexRoute
+  UsersIndexRoute: typeof UsersIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +286,155 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendar': {
+      id: '/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof CalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-tasks': {
+      id: '/my-tasks'
+      path: '/my-tasks'
+      fullPath: '/my-tasks'
+      preLoaderRoute: typeof MyTasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/org-chart': {
+      id: '/org-chart'
+      path: '/org-chart'
+      fullPath: '/org-chart'
+      preLoaderRoute: typeof OrgChartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slack': {
+      id: '/slack'
+      path: '/slack'
+      fullPath: '/slack'
+      preLoaderRoute: typeof SlackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teams': {
+      id: '/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof TeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/departments/': {
+      id: '/departments/'
+      path: '/departments'
+      fullPath: '/departments/'
+      preLoaderRoute: typeof DepartmentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/departments/$deptId': {
+      id: '/departments/$deptId'
+      path: '/departments/$deptId'
+      fullPath: '/departments/$deptId'
+      preLoaderRoute: typeof DepartmentsDeptIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/projects/$projectId'
+      preLoaderRoute: typeof ProjectsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/': {
+      id: '/tasks/'
+      path: '/tasks'
+      fullPath: '/tasks/'
+      preLoaderRoute: typeof TasksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks/$taskId': {
+      id: '/tasks/$taskId'
+      path: '/tasks/$taskId'
+      fullPath: '/tasks/$taskId'
+      preLoaderRoute: typeof TasksTaskIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/': {
+      id: '/users/'
+      path: '/users'
+      fullPath: '/users/'
+      preLoaderRoute: typeof UsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/users/$userId': {
+      id: '/users/$userId'
+      path: '/users/$userId'
+      fullPath: '/users/$userId'
+      preLoaderRoute: typeof UsersUserIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivityRoute: ActivityRoute,
+  CalendarRoute: CalendarRoute,
+  LoginRoute: LoginRoute,
+  MyTasksRoute: MyTasksRoute,
+  NotificationsRoute: NotificationsRoute,
+  OrgChartRoute: OrgChartRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
+  SlackRoute: SlackRoute,
+  TeamsRoute: TeamsRoute,
+  DepartmentsDeptIdRoute: DepartmentsDeptIdRoute,
+  ProjectsProjectIdRoute: ProjectsProjectIdRoute,
+  TasksTaskIdRoute: TasksTaskIdRoute,
+  UsersUserIdRoute: UsersUserIdRoute,
+  DepartmentsIndexRoute: DepartmentsIndexRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
+  TasksIndexRoute: TasksIndexRoute,
+  UsersIndexRoute: UsersIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
