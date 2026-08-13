@@ -4,6 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
+  useNavigate,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -11,6 +13,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AppLayout } from "@/components/layout/AppLayout";
+import { Toaster } from "@/components/ui/sonner";
+import { AppProvider, useApp } from "@/lib/store";
 
 function NotFoundComponent() {
   return (
@@ -77,11 +82,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Zeploy — Organization Task Management" },
+      {
+        name: "description",
+        content:
+          "Role-based task management for modern organizations: dashboards, projects, approvals and Slack workflows.",
+      },
+      { name: "author", content: "Zeploy" },
+      { property: "og:title", content: "Zeploy — Organization Task Management" },
+      {
+        property: "og:description",
+        content:
+          "Role-based task management for modern organizations: dashboards, projects, approvals and Slack workflows.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -114,13 +127,36 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function Shell() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { ready, signedIn } = useApp();
+  const navigate = useNavigate();
+  const isLogin = pathname === "/login";
+
+  useEffect(() => {
+    if (ready && !signedIn && !isLogin) void navigate({ to: "/login" });
+  }, [ready, signedIn, isLogin, navigate]);
+
+  if (isLogin) return <Outlet />;
+  if (!signedIn) return <div className="min-h-screen bg-background" />;
+
+  return (
+    <AppLayout>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </AppLayout>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AppProvider>
+        <Shell />
+      </AppProvider>
+      <Toaster position="bottom-right" richColors closeButton />
     </QueryClientProvider>
   );
 }
